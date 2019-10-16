@@ -12,7 +12,7 @@ DEBUG = env.bool('DEBUG', default=True)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['sklep.rwozniak.atthost24.pl','localhost', '127.0.0.1'])
 
-EMAIL_SUBJECT_PREFIX = '[Oscar sandbox] '
+EMAIL_SUBJECT_PREFIX = '[Sklep Karmelowe Pokusy] '
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Use a Sqlite database by default
@@ -93,7 +93,7 @@ MEDIA_ROOT = location("public/media")
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/media/'
+MEDIA_URL = '/public/media/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = location('public/static')
@@ -368,7 +368,7 @@ from oscar.defaults import *
 # Meta
 # ====
 
-OSCAR_SHOP_TAGLINE = 'Sandbox'
+OSCAR_SHOP_TAGLINE = 'Karmelowa Pokusa'
 
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
@@ -429,6 +429,10 @@ SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)
 SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', default=0)
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
+
+# Moje ustawienia
+OSCAR_SHOP_NAME = 'Karmelowa Pokusa'
+OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'line4', 'postcode')
 
 # Try and import local settings which can be used to override any of the above.
 try:

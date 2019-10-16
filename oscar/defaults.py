@@ -3,8 +3,8 @@ from collections import OrderedDict
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
-OSCAR_SHOP_NAME = 'Oscar'
-OSCAR_SHOP_TAGLINE = ''
+OSCAR_SHOP_NAME = 'Sklep Karmelowej Pokusy'
+OSCAR_SHOP_TAGLINE = 'Same Słodkości'
 OSCAR_HOMEPAGE = reverse_lazy('catalogue:index')
 
 # Dynamic class loading
@@ -23,7 +23,7 @@ OSCAR_RECENTLY_VIEWED_COOKIE_SECURE = False
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 
 # Currency
-OSCAR_DEFAULT_CURRENCY = 'GBP'
+OSCAR_DEFAULT_CURRENCY = 'PLN'
 
 # Paths
 OSCAR_IMAGE_FOLDER = 'images/products/%Y/%m/'
@@ -70,7 +70,7 @@ OSCAR_EAGER_ALERTS = True
 
 # Registration
 OSCAR_SEND_REGISTRATION_EMAIL = True
-OSCAR_FROM_EMAIL = 'oscar@example.com'
+OSCAR_FROM_EMAIL = 'biuro@karmelowapokusa.com'
 
 # Slug handling
 OSCAR_SLUG_FUNCTION = 'oscar.core.utils.default_slugifier'
@@ -246,3 +246,12 @@ OSCAR_SEARCH_FACETS = {
 OSCAR_PRODUCT_SEARCH_HANDLER = None
 
 OSCAR_THUMBNAILER = 'oscar.core.thumbnails.SorlThumbnail'
+
+OSCAR_INITIAL_ORDER_STATUS = 'Pending'
+OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCAR_ORDER_STATUS_PIPELINE = {
+    'Przesłane do sklepu': ('Przesłane do sklepu', 'Anulowane',),
+    'W realizacji': ('W realizacji', 'Anulowane',),
+    'Wysłane do klienta': ('Wysłane do klienta', 'Anulowane',),
+    'Anulowane': (),
+}
